@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: myapp
-          image: myreg1241.azurecr.io/tomcat:latest
+          image: myreg1241.azurecr.io/myapp:latest
           ports:
             - containerPort: 8080
 
