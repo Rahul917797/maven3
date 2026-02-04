@@ -4,42 +4,35 @@ kind: Deployment
 metadata:
   name: myapp-deployment
   labels:
-    type: webserver
+    app: myapp
 spec:
   replicas: 2
   selector:
     matchLabels:
-      type: webserver
+      app: myapp
   template:
     metadata:
-      name: myapp-pod
       labels:
-        type: webserver
+        app: myapp
     spec:
       containers:
         - name: myapp
           image: myreg1241.azurecr.io/tomcat:latest
+          ports:
+            - containerPort: 8080
+      imagePullSecrets:
+        - name: myreg-secret
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: myapp-service
   labels:
-    author: itnellqiit
+    app: myapp
 spec:
   type: LoadBalancer
   ports:
-    - targetPort: 8080
-      port: 80
-      nodePort: 30009
+    - port: 80
+      targetPort: 8080
   selector:
-    type: webserver
-...
-
-
-
-
-
-
-
-
+    app: myapp
