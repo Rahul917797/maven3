@@ -20,7 +20,10 @@ spec:
           image: myreg1241.azurecr.io/tomcat:latest
           ports:
             - containerPort: 8080
-            
+      # Pull secret for private registry
+      imagePullSecrets:
+        - name: myreg-secret
+
 ---
 apiVersion: v1
 kind: Service
