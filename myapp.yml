@@ -18,6 +18,7 @@ spec:
       containers:
         - name: myapp
           image: myreg1241.azurecr.io/myapp:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 8080
 
