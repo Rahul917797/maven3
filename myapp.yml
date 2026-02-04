@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: myapp
-          image: intelliqitjava.azurecr.io/myapp:latest
+          image: myreg1241.azurecr.io/tomcat:latest
 ---
 apiVersion: v1
 kind: Service
